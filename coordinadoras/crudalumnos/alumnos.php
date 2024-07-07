@@ -19,7 +19,7 @@ if (!isset($_SESSION['user'])) {
 <div class="container">
     <div class="navbar">
         <span>Bienvenid@, <?php echo $_SESSION['user']; ?></span>
-        <button onclick="location.href='../../menu.php'">Menú Principal</button>
+        <button onclick="location.href='../../php/menu_directora.php'">Menú Principal</button>
         <button onclick="location.href='../../php/logout.php'">Cerrar Sesión</button>
     </div>
 
