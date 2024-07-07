@@ -43,15 +43,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 case 'coordinadora academica':
                     header("Location: php/menucoordinadora.php");
                     exit;
-                    break;
                 case 'directora':
                     header("Location: php/menudirectora.php");
                     exit;
-                    break;
                 case 'coordinadora de cobranza':  // Usa 'cobrador' en lugar de 'cobrania' para consistencia
                     header("Location: php/menucobranza.php");
                     exit;
-                    break;
+
                 default:
                     echo "Error: Rol no reconocido."; // Manejar roles inesperados
                     break;
