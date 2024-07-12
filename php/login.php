@@ -41,13 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Redireccionar según el rol con mensajes adecuados (en español)
             switch ($_SESSION['rol']) {
                 case 'coordinadora academica':
-                    header("Location: php/menucoordinadora.php");
+                    header("Location: menucoordinadora.php");
                     exit;
                 case 'directora':
-                    header("Location: php/menudirectora.php");
+                    header("Location: menudirectora.php");
                     exit;
                 case 'coordinadora de cobranza':  // Usa 'cobrador' en lugar de 'cobrania' para consistencia
-                    header("Location: php/menucobranza.php");
+                    header("Location: menucobranza.php");
                     exit;
 
                 default:
@@ -92,10 +92,10 @@ $conn->close();
             </div>
             <div class="form-group">
                 <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>j
+                <input type="password" id="password" name="password" required>
             </div>
             <button type="submit" class="login-button">Ingresar</button>
-        </form>                                                                                                                                                                      nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn                                                                                                                                                                                                                                       
+        </form>                                                                                                                                                                                                                                                                                                                                                                              
         <div class="register-link">
             <p>¿No tienes una cuenta? <a href="../registro.html">Regístrate aquí</a></p>
         </div>
