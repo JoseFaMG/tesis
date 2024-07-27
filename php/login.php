@@ -49,7 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 case 'coordinadora de cobranza':  // Usa 'cobrador' en lugar de 'cobrania' para consistencia
                     header("Location: menucobranza.php");
                     exit;
-
                 default:
                     echo "Error: Rol no reconocido."; // Manejar roles inesperados
                     break;
@@ -66,43 +65,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $conn->close();
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido al Control de Acceso de Estudiantes</title>
-    <link rel="icon" href="../img/logo-utc-v01.svg">
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<div class="container">
-    <header>
-        <h1>Bienvenido al Control de Acceso de Estudiantes</h1>
-    </header>
-    <main>
-        <div class="welcome-message">
-            <p>Por favor, ingresa tus credenciales para acceder al sistema.</p>
-        </div>
-        <form action="login.php" method="POST">
-            <div class="form-group">
-                <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="login-button">Ingresar</button>
-        </form>                                                                                                                                                                                                                                                                                                                                                                              
-        <div class="register-link">
-            <p>¿No tienes una cuenta? <a href="../registro.html">Regístrate aquí</a></p>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Universidad Tres Culturas. Todos los derechos reservados.</p>
-    </footer>
-</div>
-</body>
-</html>
