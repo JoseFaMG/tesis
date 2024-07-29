@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<?php
-session_start();
-if (!isset($_SESSION['user'])) {
-    header('Location: ../php/login.php');
-    exit();
-}
-?>
+    <?php
+    session_start();
+    if (!isset($_SESSION['user'])) {
+        header('Location: ../php/login.php');
+        exit();
+    }
+    ?>
 
 <div class="container">
     <div class="navbar">
