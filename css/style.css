@@ -3,28 +3,30 @@
     --primary-color-hover: #0056b3;
     --secondary-color: #ff7f50;
     --background-color: #f2f2f2;
-    --text-color: #fff;
+    --text-color: #000000;
     --error-color: red;
     --padding: 30px;
     --border-radius: 10px;
-    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     --transition-duration: 0.3s;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: url('../img/fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-weight: bo;
     color: var(--text-color);
 }
 
 .login-container {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(100, 98, 97, 0.6);
     padding: var(--padding);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -43,10 +45,10 @@ label {
 }
 
 input {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 5px solid #141414;
     border-radius: var(--border-radius);
     transition: border-color var(--transition-duration), box-shadow var(--transition-duration);
 }
@@ -97,5 +99,8 @@ button:hover {
 
     button {
         font-size: 15px;
+    }
+    .login-logo {
+        max-width: 50px; /* Adjust size for smaller screens */
     }
 }
