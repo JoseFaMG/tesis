@@ -24,10 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Redireccionar según el rol del usuario
             switch ($row['rol']) {
                 case 'coordinadora de cobranza':
-                    header("Location: cobranza_dashboard.php");
+                    header("Location: menucoordinadora.php");
                     break;
                 case 'coordinadora academica':
-                    header("Location: academica_dashboard.php");
+                    header("Location: menudirectora.php");
                     break;
                 case 'directora':
                     header("Location: directora_dashboard.php");
