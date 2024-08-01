@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../img/logo.png">
 </head>
 <body>
     <div class="login-container">
-        <img src="img/logo.png" alt="Logo" class="login-logo">
+        <img src="../img/logo.png" alt="Logo" class="login-logo">
         <h2>Iniciar Sesión</h2>
-        <form id="loginForm" action="php/val.php" method="POST">
+        <form id="loginForm" action="val.php" method="POST">
             <input type="text" name="username" id="username" placeholder="Usuario" required>
             <input type="password" name="password" id="password" placeholder="Contraseña" required>
             <button type="submit">Iniciar Sesión</button>
@@ -30,7 +30,7 @@
         });
 
         document.getElementById('registerButton').addEventListener('click', function() {
-            window.location.href = 'registro.html'; 
+            window.location.href = '../registro.html';
         });
     </script>
 </body>

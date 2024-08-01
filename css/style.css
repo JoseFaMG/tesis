@@ -2,8 +2,8 @@
     --primary-color: #007bff;
     --primary-color-hover: #0056b3;
     --secondary-color: #ff7f50;
-    --background-color: #f2f2f2;
-    --text-color: #000000;
+    --background-color: #e8a0a0;
+    --text-color: #ffffff;
     --error-color: red;
     --padding: 30px;
     --border-radius: 10px;
@@ -21,7 +21,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-weight: bo;
+    font-weight: bold;
     color: var(--text-color);
 }
 
@@ -35,25 +35,34 @@ body {
     text-align: center;
 }
 
+.login-logo {
+    max-width: 100px; /* Ajusta el tamaño del logo */
+    margin-bottom: 20px; /* Añade espacio debajo del logo */
+}
+
 h2 {
     margin-bottom: 20px;
+    color: var(--text-color);
 }
 
 label {
     display: block;
     margin-bottom: 5px;
+    color: var(--text-color);
 }
 
-input {
+input, select {
     width: 90%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 5px solid #141414;
+    border: 1px solid #141414;
     border-radius: var(--border-radius);
     transition: border-color var(--transition-duration), box-shadow var(--transition-duration);
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-input:focus {
+input:focus, select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
     outline: none;
@@ -100,7 +109,8 @@ button:hover {
     button {
         font-size: 15px;
     }
+
     .login-logo {
-        max-width: 50px; /* Adjust size for smaller screens */
+        max-width: 50px; /* Ajusta el tamaño para pantallas pequeñas */
     }
 }
