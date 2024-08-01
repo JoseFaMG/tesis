@@ -1,4 +1,10 @@
-
+<?php
+session_start();
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'coordinadora de cobranza') {
+    header("Location: ../index.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,13 +15,6 @@
     <link rel="stylesheet" href="../css/menustyles.css">
 </head>
 <body>
-<?php
-session_start();
-if (!isset($_SESSION['user'])) {
-    header('Location: php/login.php');
-    exit();
-}
-?>
 <div class="menu-bar">
     <span class="welcome-message">Bienvenid@, <?php echo $_SESSION['user']; ?></span>
     <button class="logout-button" onclick="location.href='logout.php'">Cerrar Sesión</button>
