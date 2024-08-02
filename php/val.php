@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password_hash'])) {
             // Guardar la información del usuario en la sesión
-            $_SESSION['userid'] = $row['id'];
+            $_SESSION['id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
             $_SESSION['rol'] = $row['rol'];
 
@@ -35,12 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     break;
                 case 'coordinadora':
                     $response['success'] = true;
-                    $response['message'] = 'Redirigiendo a academicas';
+                    $response['message'] = 'Redirigiendo a crud alumnos';
                     $response['redirect'] = 'academicas.php';
                     break;
                 case 'directora':
                     $response['success'] = true;
-                    $response['message'] = 'Redirigiendo a directoras';
+                    $response['message'] = 'Redirigiendo a crud alumnos';
                     $response['redirect'] = 'directoras.php';
                     break;
                 default:

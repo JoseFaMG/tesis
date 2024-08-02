@@ -2,7 +2,6 @@
 session_start();
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'directora') {
     header("Location: ../index.html");
-    exit();
 }
 ?>
 <!DOCTYPE html>
