@@ -31,17 +31,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 case 'cobranza':
                     $response['success'] = true;
                     $response['message'] = 'Redirigiendo a cobranzas';
-                    $response['redirect'] = 'cobranzas.php';
+                    $response['redirect'] = './php/cobranzas.php';
                     break;
                 case 'coordinadora':
                     $response['success'] = true;
                     $response['message'] = 'Redirigiendo a crud alumnos';
-                    $response['redirect'] = 'academicas.php';
+                    $response['redirect'] = './php/academicas.php';
                     break;
                 case 'directora':
                     $response['success'] = true;
                     $response['message'] = 'Redirigiendo a crud alumnos';
-                    $response['redirect'] = 'directoras.php';
+                    $response['redirect'] = './php/directoras.php';
                     break;
                 default:
                     $response['success'] = false;
