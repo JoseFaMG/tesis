@@ -24,20 +24,45 @@
     </form>
     <p id="error-message"></p>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const rol = document.getElementById('rol').value;
-
-        if (username === '' || password === '' || rol === '') {
+    $(document).ready(function() {
+        $('#loginForm').on('submit', function(event) {
             event.preventDefault();
-            document.getElementById('error-message').textContent = 'Por favor, complete todos los campos.';
-        }
-    });
 
-    document.getElementById('registerButton').addEventListener('click', function() {
-        window.location.href = 'registro.html';
+            const formData = {
+                username: $('#username').val(),
+                password: $('#password').val(),
+                rol: $('#rol').val()
+            };
+
+            if (formData.username === '' || formData.password === '' || formData.rol === '') {
+                $('#error-message').text('Por favor, complete todos los campos.');
+                return;
+            }
+
+            $.ajax({
+                url: 'php/val.php',
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    var res = JSON.parse(response);
+                    if (res.success) {
+                        alert(res.message);
+                        window.location.href = res.redirect;
+                    } else {
+                        $('#error-message').text(res.message);
+                    }
+                },
+                error: function() {
+                    $('#error-message').text('Hubo un problema con la solicitud. Intente de nuevo más tarde.');
+                }
+            });
+        });
+
+        $('#registerButton').on('click', function() {
+            window.location.href = 'registro.html';
+        });
     });
 </script>
 </body>
