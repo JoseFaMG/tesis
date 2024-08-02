@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'coordinadora de cobranza') {
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'cobranza') {
     header("Location: ../index.html");
     exit();
 }

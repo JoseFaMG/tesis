@@ -1,15 +1,11 @@
 <?php
-session_start();
 include 'config.php';
-
-$response = array();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $rol = $_POST['rol'];
 
-    // Consulta SQL para validar las credenciales del usuario
     $sql = "SELECT id, username, password_hash, rol FROM usuarios WHERE username = ? AND rol = ?";
     $stmt = $conn->prepare($sql);
     if ($stmt === false) {
@@ -34,18 +30,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             switch ($row['rol']) {
                 case 'cobranza':
                     $response['success'] = true;
-                    $response['message'] = 'Redirigiendo a cobranzas.php';
-                    $response['redirect'] = '../cobranzas.php';
+                    $response['message'] = 'Redirigiendo a cobranzas';
+                    $response['redirect'] = 'php/phpcobranzas.php';
                     break;
                 case 'coordinadora':
                     $response['success'] = true;
-                    $response['message'] = 'Redirigiendo a academicas.php';
-                    $response['redirect'] = '../academicas.php';
+                    $response['message'] = 'Redirigiendo a academicas';
+                    $response['redirect'] = 'php/academicas.php';
                     break;
                 case 'directora':
                     $response['success'] = true;
-                    $response['message'] = 'Redirigiendo a directoras.php';
-                    $response['redirect'] = '../directoras.php';
+                    $response['message'] = 'Redirigiendo a directoras';
+                    $response['redirect'] = 'php/directoras.php';
                     break;
                 default:
                     $response['success'] = false;
