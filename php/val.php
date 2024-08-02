@@ -2,6 +2,8 @@
 session_start();
 include 'config.php';
 
+$response = array();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -11,7 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT id, username, password_hash, rol FROM usuarios WHERE username = ? AND rol = ?";
     $stmt = $conn->prepare($sql);
     if ($stmt === false) {
-        echo '<script>alert("Error en la preparación de la consulta: ' . htmlspecialchars($conn->error) . '");</script>';
+        $response['success'] = false;
+        $response['message'] = 'Error en la preparación de la consulta: ' . htmlspecialchars($conn->error);
+        echo json_encode($response);
         die();
     }
     $stmt->bind_param("ss", $username, $rol);
@@ -29,29 +33,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Redireccionar según el rol del usuario
             switch ($row['rol']) {
                 case 'cobranza':
-                    echo '<script>alert("Redirigiendo a cobranzas.php");</script>';
-                    header("Location: cobranzas.php");
-                    exit();
+                    $response['success'] = true;
+                    $response['message'] = 'Redirigiendo a cobranzas.php';
+                    $response['redirect'] = '../cobranzas.php';
+                    break;
                 case 'coordinadora':
-                    echo '<script>alert("Redirigiendo a academicas.php");</script>';
-                    header("Location: academicas.php");
-                    exit();
+                    $response['success'] = true;
+                    $response['message'] = 'Redirigiendo a academicas.php';
+                    $response['redirect'] = '../academicas.php';
+                    break;
                 case 'directora':
-                    echo '<script>alert("Redirigiendo a directoras.php");</script>';
-                    header("Location: directoras.php");
-                    exit();
+                    $response['success'] = true;
+                    $response['message'] = 'Redirigiendo a directoras.php';
+                    $response['redirect'] = '../directoras.php';
+                    break;
                 default:
-                    echo '<script>alert("Rol no reconocido.");</script>';
-                    exit();
+                    $response['success'] = false;
+                    $response['message'] = 'Rol no reconocido.';
+                    break;
             }
         } else {
-            echo '<script>alert("Contraseña incorrecta.");</script>';
+            $response['success'] = false;
+            $response['message'] = 'Contraseña incorrecta.';
         }
     } else {
-        echo '<script>alert("Usuario no encontrado o rol incorrecto.");</script>';
+        $response['success'] = false;
+        $response['message'] = 'Usuario no encontrado o rol incorrecto.';
     }
 
     $stmt->close();
     $conn->close();
+} else {
+    $response['success'] = false;
+    $response['message'] = 'Método de solicitud no permitido.';
 }
+
+echo json_encode($response);
 ?>
